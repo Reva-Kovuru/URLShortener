@@ -5,6 +5,8 @@ import axiosInstance from '../lib/axios';
 import ShortUrlLinker from '../components/ShortUrlLinker';
 
 import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
+import AddCircleIcon from '@mui/icons-material/AddCircle';
 
 const HomePage = () => {
     const [urlEntries, setUrlEntries] = useState([]);
@@ -27,6 +29,7 @@ const HomePage = () => {
 
   return (
     <div>
+        <center>
         { loading && <div>Loading...</div> }
         { urlEntries.length === 0 && <div>No Entries</div> }
         {
@@ -38,9 +41,12 @@ const HomePage = () => {
         }
         <div>
         <Link to={'/create'}>
-            <button>Press here to create ShortURLs</button>
+            <Button variant="contained" endIcon={<AddCircleIcon />}>
+                Create New Short URL
+            </Button>
         </Link>
         </div>
+        </center>
     </div>
   )
 }
