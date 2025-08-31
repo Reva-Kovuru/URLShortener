@@ -4,6 +4,8 @@ import { Link } from 'react-router-dom';
 import axiosInstance from '../lib/axios';
 import ShortUrlLinker from '../components/ShortUrlLinker';
 
+import Stack from '@mui/material/Stack';
+
 const HomePage = () => {
     const [urlEntries, setUrlEntries] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -29,10 +31,10 @@ const HomePage = () => {
         { urlEntries.length === 0 && <div>No Entries</div> }
         {
             urlEntries.length > 0 &&
-            <div> {urlEntries.map(url => (
+            <Stack> {urlEntries.map(url => (
                 <ShortUrlLinker key={url._id} urlShortCode={url.shortcode} urlTitle={url.title} setUrlEntries={setUrlEntries} />
             ))}
-            </div>
+            </Stack>
         }
         <div>
         <Link to={'/create'}>
