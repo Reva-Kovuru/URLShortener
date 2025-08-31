@@ -10,7 +10,7 @@ import SendIcon from '@mui/icons-material/Send';
 
 const CreateShortCodePage = () => {
     const [originalUrl, setoriginalUrl] = useState("");
-    var [validity, setValidity] = useState(30);
+    var [validity, setValidity] = useState(60000);
     const [loading, setLoading] = useState(false);
     var [title, setTitle] = useState("");
 
@@ -55,7 +55,7 @@ const CreateShortCodePage = () => {
         alignItems: 'center',
         gap: 1,
         width: '100%',
-        maxWidth: '600px',
+        maxWidth: '98%',
         margin: '2rem auto'
         }}
     >
@@ -81,8 +81,8 @@ const CreateShortCodePage = () => {
         label="Enter the validity in Minutes"
         type="number"
         variant="outlined"
-        value={validity}
-        onChange={(e) => setValidity((e.target.value) * (1000 * 60))}
+        value={validity / (1000 * 60)}
+        onChange={(e) => setValidity(Number(e.target.value) * (1000 * 60))}
         disabled={loading}
         />
         <Button
