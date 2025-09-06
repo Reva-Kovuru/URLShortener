@@ -27,6 +27,6 @@ const urlEntrySchema = new mongoose.Schema(
     }
 );
 
-const UrlEntry = mongoose.model("UrlEntry", urlEntrySchema);
+const UrlEntry = mongoose.models.UrlEntry || mongoose.model("UrlEntry", urlEntrySchema);
 
 export default UrlEntry;
